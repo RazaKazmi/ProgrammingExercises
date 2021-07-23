@@ -17,7 +17,7 @@ int main(){
 	double total_rice = 1;
 	std::cin >> rice_grains_input;
 	std::cout << "Rice grains: " << rice_grains << " square: " << square << '\n';
-	while(rice_grains < rice_grains_input){
+	while(total_rice < rice_grains_input){
 		rice_grains *= 2;
 		total_rice += rice_grains;
 		square++;
