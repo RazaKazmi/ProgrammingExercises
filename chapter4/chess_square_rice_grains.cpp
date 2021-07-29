@@ -25,5 +25,5 @@ int main(){
 		<< square << " Total Rice: " << total_rice << '\n';
 	}
 
-	common_utility::keep_window_open();
+	common_utility::KeepWindowOpen();
 }

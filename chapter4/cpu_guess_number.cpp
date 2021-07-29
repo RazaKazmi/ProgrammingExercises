@@ -39,5 +39,5 @@ int main()
     int cpu_guess = middle;
     std::cout << "Your number is: " << cpu_guess << '\n';
 
-    common_utility::keep_window_open();
+    common_utility::KeepWindowOpen();
 }

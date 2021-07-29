@@ -4,6 +4,15 @@
         "iosfwd": "cpp",
         "vector": "cpp",
         "ostream": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "format": "cpp",
+        "regex": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp",
+        "xlocbuf": "cpp",
+        "xloctime": "cpp",
+        "charconv": "cpp",
+        "locale": "cpp",
+        "string": "cpp"
     }
 }

@@ -35,5 +35,5 @@ int main(){
 		total_distance / dist_between_cities.size();
 
 	std::cout << std::endl;
-	common_utility::keep_window_open();
+	common_utility::KeepWindowOpen();
 }

@@ -10,10 +10,11 @@
 namespace common_utility
 {
 
-	void print(std::string s);
+	void Print(std::string s);
+	//Keeps console window open
 	void keep_window_open();
-	void error(const std::string &s);
-	void error(const std::string &s, const std::string &s2);
+	void Error(const std::string &s);
+	void Error(const std::string &s, const std::string &s2);
 
 	template <class T>
 	std::string to_string(const T& t);
