@@ -55,6 +55,8 @@ static bool CheckUserWin(rpsGame user, rpsGame cpu)
     return false;
 }
 
+
+
 int main()
 {
     using namespace common_utility;
@@ -68,15 +70,15 @@ int main()
     while(std::cin >> userInput)
     {
         if(userInput == "rock"){
-            rpsGame user = rpsGame::kRock;
+            user = rpsGame::kRock;
             break;
         }
         else if(userInput == "paper"){
-            rpsGame user = rpsGame::kPaper;
+            user = rpsGame::kPaper;
             break;
         }
         else if(userInput == "scissors"){
-            rpsGame user = rpsGame::kScissors;
+            user = rpsGame::kScissors;
             break;
         }
         else
@@ -85,8 +87,9 @@ int main()
 
     //generate cpus input
     rpsGame cpu = rpsGame::kRock;
-    std::random_device rd;
-    std::mt19937 mt(rd());
+   
+    static std::random_device rd;
+    static std::mt19937 mt(rd());
     std::uniform_int_distribution<int> dist(1,3);
 
     cpu = IntToRpsGame(dist(mt));
