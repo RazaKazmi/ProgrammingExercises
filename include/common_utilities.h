@@ -5,18 +5,19 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include <random>
 
 namespace common_utility
 {
 
 	void Print(std::string s);
-	//Keeps console window open
-	void keep_window_open();
+	void KeepWindowOpen(); //Keeps console window open
+	
+	//Error handling
 	void Error(const std::string &s);
 	void Error(const std::string &s, const std::string &s2);
 
+	//Conversions
 	template <class T>
-	std::string to_string(const T& t);
+	std::string ToString(const T& t);
 
 }

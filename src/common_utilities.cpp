@@ -3,12 +3,12 @@
 namespace common_utility
 {
 
-	void print(std::string s)
+	void Print(std::string s)
 	{
 		std::cout << s << '\n';
 	}
 
-	void keep_window_open()
+	void KeepWindowOpen()
 	{
 		std::cin.clear();
 		std::cout << "Please enter a character to exit\n";
@@ -17,18 +17,18 @@ namespace common_utility
 		return;
 	}
 
-	void error(const std::string &s)
+	void Error(const std::string &s)
 	{
 		throw std::runtime_error(s);
 	}
 
-	void error(const std::string &s, const std::string &s2)
+	void Error(const std::string &s, const std::string &s2)
 	{
-		error(s + s2);
+		Error(s + s2);
 	}
 
 	template <class T>
-	std::string to_string(const T& t)
+	std::string ToString(const T& t)
 	{
 		std::ostringstream os;
 		os << t;
