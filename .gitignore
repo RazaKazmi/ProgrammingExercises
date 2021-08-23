@@ -9,9 +9,15 @@
 # Local History for Visual Studio Code
 .history/
 
+#Build files
+build/
+
 #C++
 # Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
+
+#Executables
+*.exe
