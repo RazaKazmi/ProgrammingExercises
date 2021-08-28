@@ -15,6 +15,8 @@ static void TemperatureConversionProgram()
     double temperature = 0;
     char unit = ' ';
     std::cin >> temperature >> unit;
+    if(!std::cin)
+        common_utility::Error("temperature input is invalid!");
 
     std::cout << temperature << unit << " Converted: \n";
     switch(unit){
