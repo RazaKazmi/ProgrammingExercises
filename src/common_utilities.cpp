@@ -35,4 +35,14 @@ namespace common_utility
 		return os.str();
 	}
 
+	int NumberOfDigits(int n)
+	{
+		unsigned int number_of_digits = 0;
+		unsigned int base = 10;
+		do {
+			number_of_digits++;
+			n /= base;
+		} while(n);
+	}
+
 }
