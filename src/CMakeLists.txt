@@ -1,0 +1,6 @@
+enable_testing()
+
+add_executable(common_utility_test common_utilities_test.cc)
+target_link_libraries(common_utility_test gtest_main common_utility)
+
+gtest_discover_tests(common_utility_test)

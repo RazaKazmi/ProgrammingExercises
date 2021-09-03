@@ -43,6 +43,12 @@ namespace common_utility
 			number_of_digits++;
 			n /= base;
 		} while(n);
+		return number_of_digits;
+	}
+
+	bool DistinctDigits(int n)
+	{
+		return false;
 	}
 
 }

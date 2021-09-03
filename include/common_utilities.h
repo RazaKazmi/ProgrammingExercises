@@ -19,7 +19,8 @@ namespace common_utility
 	//Conversions
 	template <class T>
 	std::string ToString(const T& t);
-	
+
 	//returns the number of digits an integer has
 	int NumberOfDigits(int n);
+	bool DistinctDigits(int n);
 }

@@ -17,17 +17,15 @@
     #target_link_libraries( ${src_name} yourLib)
 #endforeach( src_file ${SRC_FILES} )
 
-file (GLOB SRC_FILES ${CMAKE_SOURCE_DIR}/src/*.cpp)
+add_executable( chess_square_rice_grains chess_square_rice_grains.cpp)
+target_link_libraries( chess_square_rice_grains PUBLIC common_utility)
 
-add_executable( chess_square_rice_grains chess_square_rice_grains.cpp ${SRC_FILES} )
-target_include_directories(chess_square_rice_grains PUBLIC ${CMAKE_SOURCE_DIR}/include )
+add_executable( dist_between_cities dist_between_cities.cpp )
+target_link_libraries( dist_between_cities PUBLIC common_utility)
 
-add_executable( dist_between_cities dist_between_cities.cpp ${SRC_FILES} )
-target_include_directories(dist_between_cities PUBLIC ${CMAKE_SOURCE_DIR}/include )
+add_executable( cpu_guess_number cpu_guess_number.cpp )
+target_link_libraries( cpu_guess_number PUBLIC common_utility)
 
-add_executable( cpu_guess_number cpu_guess_number.cpp ${SRC_FILES} )
-target_include_directories(cpu_guess_number PUBLIC ${CMAKE_SOURCE_DIR}/include )
-
-add_executable( rock_paper_scissors rock_paper_scissors.cpp ${SRC_FILES} )
-target_include_directories(rock_paper_scissors PUBLIC ${CMAKE_SOURCE_DIR}/include )
+add_executable( rock_paper_scissors rock_paper_scissors.cpp )
+target_link_libraries( rock_paper_scissors PUBLIC common_utility)
 
