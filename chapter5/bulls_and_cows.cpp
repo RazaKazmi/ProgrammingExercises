@@ -15,14 +15,14 @@
 static constexpr int kDigitNum = 4;
 
 //generate a 4 digit number where each digit is unique
-int GenerateNum()
+static int GenerateNum()
 {
     //TODO: generate unique digit number
     return 1234;
 }
 
 //print the instructions of the game
-void PrintInstructions()
+static void PrintInstructions()
 {
     std::cout << "Welcome to bulls and cows!\n";
     std::cout << "You have to guess the exact number as the cpu! The number is 4 digits and each digit is unique.\n";
@@ -30,27 +30,37 @@ void PrintInstructions()
     std::cout << "Otherwise if you get a correct number in the incorrect place, you'll have a cow.\n";
 }
 
-std::string GetUserInput()
+//checks for validity of the argument number specifically for
+//the number of digits and uniqueness
+static void CheckValidity(int n)
+{
+    if(common_utility::NumberOfDigits(n) != kDigitNum)
+        common_utility::Error("user input does not match the cpu digits.");
+    if(common_utility::IsDistinctDigits(n) == false)
+        common_utility::Error("user input is not distinct digits.");
+}
+
+static std::string GetUserInput()
 {
     std::cout << "Enter your 4 unique digit number: ";
     int user_guess;
     std::cin >> user_guess;
     if(!std::cin)
         common_utility::Error("Invalid input entered");
-    //TODO: Check validity of user input (Number is 4 digits, and each digit is unique)
+    CheckValidity(user_guess);
 
     return std::to_string(user_guess);
 }
 
 //print the results of the game
-void AnnounceResults(int bulls, int cows)
+static void AnnounceResults(int bulls, int cows)
 {
     std::cout << "You got: " <<  bulls << " bull and " << cows << " cow" << '\n';
     if(bulls == kDigitNum)
         common_utility::Print("You win!");
 }
 
-void BullsAndCows()
+static void BullsAndCows()
 {
     std::string num = std::to_string(GenerateNum());
     int bull = 0, cow = 0;
@@ -86,6 +96,7 @@ int main()
         //TODO: do while user wants to play again
         PrintInstructions();
         BullsAndCows();
+        common_utility::KeepWindowOpen();
     }
     catch(std::exception& e) {
         std::cerr << "error: " << e.what() << '\n';

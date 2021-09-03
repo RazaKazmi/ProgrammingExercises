@@ -1,3 +1,4 @@
+#include <unordered_map>
 #include "../include/common_utilities.h"
 
 namespace common_utility
@@ -46,9 +47,19 @@ namespace common_utility
 		return number_of_digits;
 	}
 
-	bool DistinctDigits(int n)
+	bool IsDistinctDigits(int n)
 	{
-		return false;
+		std::unordered_map<int,int> umap;
+		do {
+			int remainder = n % 10;
+			n /= 10;
+			if(umap.find(remainder) != umap.end()) {
+				return false;
+			} else {
+				umap[remainder] = 1;
+			}
+		} while(n);
+		return true;
 	}
 
 }

@@ -22,5 +22,5 @@ namespace common_utility
 
 	//returns the number of digits an integer has
 	int NumberOfDigits(int n);
-	bool DistinctDigits(int n);
+	bool IsDistinctDigits(int n);
 }
