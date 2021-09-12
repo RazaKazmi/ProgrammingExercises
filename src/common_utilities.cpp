@@ -29,36 +29,51 @@ namespace common_utility
 	}
 
 	template <class T>
-	std::string ToString(const T& t)
+	std::string ToString(const T &t)
 	{
 		std::ostringstream os;
 		os << t;
 		return os.str();
 	}
 
+	// run-time checked narrowing cast (type conversion). See ???.
+	template <class R, class A>
+	R narrow_cast(const A& a)
+	{
+		R r = R(a);
+		if (A(r) != a)
+			Error(std::string("info loss"));
+		return r;
+	}
+	
 	int NumberOfDigits(int n)
 	{
 		unsigned int number_of_digits = 0;
 		unsigned int base = 10;
-		do {
+		do
+		{
 			number_of_digits++;
 			n /= base;
-		} while(n);
+		} while (n);
 		return number_of_digits;
 	}
 
 	bool IsDistinctDigits(int n)
 	{
-		std::unordered_map<int,int> umap;
-		do {
+		std::unordered_map<int, int> umap;
+		do
+		{
 			int remainder = n % 10;
 			n /= 10;
-			if(umap.find(remainder) != umap.end()) {
+			if (umap.find(remainder) != umap.end())
+			{
 				return false;
-			} else {
+			}
+			else
+			{
 				umap[remainder] = 1;
 			}
-		} while(n);
+		} while (n);
 		return true;
 	}
 

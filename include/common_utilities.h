@@ -3,6 +3,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 #include <sstream>
 #include <stdexcept>
 
@@ -20,7 +21,12 @@ namespace common_utility
 	template <class T>
 	std::string ToString(const T& t);
 
+	template<class R, class A> 
+	R narrow_cast(const A& a);
+
 	//returns the number of digits an integer has
 	int NumberOfDigits(int n);
 	bool IsDistinctDigits(int n);
+
+	
 }

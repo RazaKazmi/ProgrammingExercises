@@ -30,5 +30,6 @@ target_include_directories(common_utility PUBLIC ${CMAKE_SOURCE_DIR}/include)
 add_subdirectory(src)
 add_subdirectory(chapter4)
 add_subdirectory(chapter5)
+add_subdirectory(calculator)
 
 
