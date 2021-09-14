@@ -30,6 +30,7 @@ Secondary:
 	Secondary!
 Primary:
 	Number
+	{ Expression }
 	( Expression )
 	-Primary
 	+Primary
@@ -45,6 +46,9 @@ Number:
 #include "Token.h"
 #include "../include/common_utilities.h"
 
+static const char number = '8';
+static const char quit = 'q';
+static const char print = ';';
 
 Token_stream ts;
 
@@ -221,7 +225,7 @@ int main()
 		std::cout << "Welcome to our simple calculator." << std::endl;
 		std::cout << "The operators available are '+', '-', '*', '/' '(', ')' " << std::endl;
 		std::cout << "To print the result of the expression, use '='. " << std::endl;
-		std::cout << "Press 'x' to exit the program" << std::endl;
+		std::cout << "Press 'q' to exit the program" << std::endl;
 		std::cout << "Please enter expressions using floating-point numbers" << std::endl;
 		
 		calculate();

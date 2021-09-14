@@ -3,6 +3,10 @@
 #include "../include/common_utilities.h"
 #include "Token.h"
 
+static const char number = '8';
+static const char quit = 'q';
+static const char print = ';';
+
 Token_stream::Token_stream()
 	:full(false), buffer(0)
 {
