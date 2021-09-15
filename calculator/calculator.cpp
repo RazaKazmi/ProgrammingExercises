@@ -132,18 +132,15 @@ double term()
 			t = ts.get();
 			break;
 		}
-		/*
 		case '%':
 		{
-			int i1 = common_utility::narrow_cast<int>(left);
-			int i2 = common_utility::narrow_cast<int>(secondary());
-			if (i2 == 0)
-				common_utility::Error("%: divide by zero");
-			left = i1 % i2;
+			double d = secondary();
+			if(d == 0)
+				common_utility::Error("Divide by zero");
+			left = fmod(left,d);
 			t = ts.get();
 			break;
 		}
-		*/
 		default:
 			ts.putback(t);
 			return left;
