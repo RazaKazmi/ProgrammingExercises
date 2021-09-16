@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 
 #include "../include/common_utilities.h"
 #include "Token.h"
@@ -6,6 +7,9 @@
 static const char number = '8';
 static const char quit = 'q';
 static const char print = ';';
+static const char name = 'a';
+static const char let = 'L';
+static const std::string declkey = "let";
 
 Token_stream::Token_stream()
 	:full(false), buffer(0)
@@ -35,6 +39,7 @@ Token Token_stream::get()
 	case '/':
 	case '!': 
 	case '%':
+	case '=':
 		return Token{ ch }; // let each character represent itself
 	case '.':				// a floating point literal can start with a dot
 	case '0': case '1': case '2': case '3': case '4':
@@ -46,6 +51,16 @@ Token Token_stream::get()
 		return Token{number,val};
 	}
 	default:
+		if(isalpha(ch)) {
+			std::string s;
+			s += ch;
+			while(std::cin.get(ch) && (isalpha(ch)||isdigit(ch)))
+				s += ch;
+			std::cin.putback(ch);
+			if(s == declkey)
+				return Token{let};
+			return Token{name,s};
+		}
 		common_utility::Error("Bad token");
 	}
 }

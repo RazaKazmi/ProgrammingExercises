@@ -7,11 +7,18 @@ I only iterated on it with the exercises provided in his book.
 The program implements a basic expression calculator.
 The current grammar for the calculator is:
 
-Statement:
-	Expression
+Calculation:
+	Statement
 	Print
 	Quit
+	Calculation Statement
 
+Statement:
+	Declaration
+	Expression
+
+Declaration:
+	"let" Name "=" Expression
 Print:
 	;
 Quit:
@@ -30,6 +37,7 @@ Secondary:
 	Secondary!
 Primary:
 	Number
+	Variable
 	{ Expression }
 	( Expression )
 	-Primary
@@ -44,19 +52,24 @@ Number:
 #include <exception>
 
 #include "Token.h"
+#include "variable.h"
 #include "../include/common_utilities.h"
 
 static const char number = '8';
 static const char quit = 'q';
 static const char print = ';';
+static const char let = 'L';
+static const char name = 'a';
+static const std::string prompt = "> ";
+static const std::string result = "= ";
 
 Token_stream ts;
+Variable g_var_table;
 
 double expression(); // declaration so that primary can call experssion()
 int factorial(int n);
 
-const std::string prompt = "> ";
-const std::string result = "= ";
+
 
 double primary()
 {
@@ -81,11 +94,13 @@ double primary()
 	}
 	case number:
 		return t.value;
+	case name:
+		return g_var_table.GetValue(t.name);
 	case '-':
 		return -primary();
 	case '+':
 		return primary();
-	default:
+		default:
 		common_utility::Error("Primary expected");
 	}
 }
@@ -172,6 +187,39 @@ double expression()
 	}
 }
 
+double declaration()
+// assume we have seen "let"
+// handle: name = expression
+// declare a variable called "name" with the initial value "expression"
+{
+	Token t = ts.get();
+	if(t.kind != name)
+		common_utility::Error("name expected in declaration");
+	std::string var_name = t.name;
+
+	Token t2 = ts.get();
+	if(t2.kind != '=')
+		common_utility::Error("= missing in declartion of ", var_name);
+
+	double d = expression();
+	g_var_table.Insert(var_name,d);
+	return d;
+
+}
+
+double statement() 
+{
+	Token t = ts.get();
+	switch (t.kind) 
+	{
+		case let:
+			return declaration();
+		default:
+			ts.putback(t);
+			return expression();
+	}
+}
+
 int factorial(int n)
 {
 	if (n < 0)
@@ -200,11 +248,9 @@ void calculate() // expression evaluation loop
 			while (t.kind == print) //first discard all "prints"
 				t = ts.get();
 			if (t.kind == quit)
-			{
 				return;
-			}
 			ts.putback(t);
-			std::cout << result << expression() << '\n';
+			std::cout << result << statement() << '\n';
 		}
 		catch(std::exception& e)
 		{
