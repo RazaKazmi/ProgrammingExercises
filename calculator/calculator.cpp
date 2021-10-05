@@ -35,6 +35,7 @@ Term:
 Secondary:
 	Primary
 	Secondary!
+	sqrt ( expression )
 Primary:
 	Number
 	Variable
