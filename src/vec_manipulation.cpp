@@ -1,5 +1,7 @@
-#include "../include/vec_manipulation.h"
 #include <iostream>
+
+#include "common_utilities.h"
+#include "vec_manipulation.h"
 
 namespace common_utility
 {
@@ -63,7 +65,7 @@ namespace common_utility
     {
         //assert v.empty()
         double min_value = v[0];
-        for (const int& x : v) {
+        for (const double& x : v) {
             if(min_value > x)
                 min_value = x;
         }
