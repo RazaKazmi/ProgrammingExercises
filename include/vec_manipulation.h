@@ -15,9 +15,17 @@ namespace common_utility
     void PrintVec(const std::string& label, const std::vector<int>& vec);
 
     // Min and Max for unsorted vectors
-    double Maxv(const std::vector<double>& v);
+    double Maxv(const std::vector<double>& v);                                                                                                                                                                                                                                                                                                             
     int Maxv(const std::vector<int>& v);
     double Minv(const std::vector<double>& v);
     int Minv(const std::vector<int>& v);
+    
+    // Mean, median, and mode for vectors
+    double MeanVec(const std::vector<int>& v);
+    double MeanVec(const std::vector<double>& v);
+    double MedianVec(const std::vector<int>& v, bool sorted);
+    double MedianVec(const std::vector<double>& v, bool sorted);
+    double ModeVec(const std::vector<int>& v);
+    double ModeVec(const std::vector<double>& v);
 
 }

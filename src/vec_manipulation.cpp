@@ -82,4 +82,34 @@ namespace common_utility
         }
         return min_value;
     }
+
+    double MeanVec(const std::vector<int>& v)
+    {
+        return 0;
+    }
+
+    double MeanVec(const std::vector<double>& v)
+    {
+        return 0;
+    }
+
+    double MedianVec(const std::vector<int>& v, bool sorted)
+    {
+        return 0;
+    }
+
+    double MedianVec(const std::vector<double>& v, bool sorted)
+    {
+        return 0;
+    }
+
+    double ModeVec(const std::vector<int>& v)
+    {
+        return 0;
+    }
+
+    double ModeVec(const std::vector<double>& v) 
+    {
+        return 0;
+    }
 }

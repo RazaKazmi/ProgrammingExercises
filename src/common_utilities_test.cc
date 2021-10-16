@@ -93,3 +93,34 @@ TEST(common_utility_tests, MinvTest)
     EXPECT_EQ(common_utility::Minv(int_vec),5);
     EXPECT_DOUBLE_EQ(common_utility::Minv(double_vec),5.12);
 }
+
+TEST(common_utility_tests, MeanVecTest)
+{
+    std::vector<int> int_vec{5,10,15,20,25,30};
+    std::vector<double> double_vec{5.1,10.1,15.1,20.1,25.1,30.1};
+    EXPECT_DOUBLE_EQ(common_utility::MeanVec(int_vec),17.5);
+    EXPECT_DOUBLE_EQ(common_utility::MeanVec(double_vec),17.6);
+
+}
+
+TEST(common_utility_tests, MedianVecTest)
+{   
+    //even size
+    std::vector<int> int_vec1{5,10,15,20,25,30};
+    std::vector<double> double_vec1{5.1,10.1,15.1,20.1,25.1,30.1};
+    EXPECT_DOUBLE_EQ(common_utility::MedianVec(int_vec1,true),17.5);
+    EXPECT_DOUBLE_EQ(common_utility::MedianVec(double_vec1,true),17.6);
+    //uneven size
+    std::vector<int> int_vec2{5,10,15,20,25};
+    std::vector<double> double_vec2{5.1,10.1,15.1,20.1,25.1};
+    EXPECT_DOUBLE_EQ(common_utility::MedianVec(int_vec2,true),15);
+    EXPECT_DOUBLE_EQ(common_utility::MedianVec(double_vec2,true),15.1);
+}
+
+TEST(common_utility_tests, ModeVecTest)
+{
+    std::vector<int> int_vec{5,10,15,30,20,25,30};
+    std::vector<double> double_vec{5.1,10.1,15.1,30.1,20.1,25.1,30.1};
+    EXPECT_DOUBLE_EQ(common_utility::ModeVec(int_vec),30);
+    EXPECT_DOUBLE_EQ(common_utility::ModeVec(double_vec),30.1);
+}
