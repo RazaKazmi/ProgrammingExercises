@@ -115,6 +115,11 @@ TEST(common_utility_tests, MedianVecTest)
     std::vector<double> double_vec2{5.1,10.1,15.1,20.1,25.1};
     EXPECT_DOUBLE_EQ(common_utility::MedianVec(int_vec2,true),15);
     EXPECT_DOUBLE_EQ(common_utility::MedianVec(double_vec2,true),15.1);
+    //unsorted
+    std::vector<int> unsorted_int_vec{10,5,30,20,25,15};
+    std::vector<double> unsorted_double_vec{10.1,5.1,30.1,20.1,25.1,15.1};
+    EXPECT_DOUBLE_EQ(common_utility::MedianVec(int_vec1,false),17.5);
+    EXPECT_DOUBLE_EQ(common_utility::MedianVec(double_vec1,false),17.6);
 }
 
 TEST(common_utility_tests, ModeVecTest)

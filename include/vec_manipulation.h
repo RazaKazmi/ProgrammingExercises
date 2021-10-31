@@ -5,6 +5,9 @@
 
 namespace common_utility
 {
+    // Error checking
+    template <typename T>
+    static void CheckVectorEmpty(const std::vector<T>& vec);
     // Reversal
     template <typename T>
     std::vector<T> ReverseVec(const std::vector<T>& vec);
