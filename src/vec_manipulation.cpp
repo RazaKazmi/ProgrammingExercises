@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <exception>?
+#include <exception>
+#include <map>
 
 #include "common_utilities.h"
 #include "vec_manipulation.h"
@@ -152,7 +153,18 @@ namespace common_utility
 
     double ModeVec(const std::vector<int>& v)
     {
-        return 0;
+        /*
+        std::unordered_map<int, int> umap;
+        for(const int& x : v) {
+            if (umap.find(x) != umap.end()) {
+                umap[x]++;
+            } else {
+                umap[x] = 0;
+            }
+        }
+        */
+       return 0;
+
     }
 
     double ModeVec(const std::vector<double>& v) 

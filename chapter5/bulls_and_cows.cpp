@@ -17,7 +17,7 @@ static constexpr int kDigitNum = 4;
 //generate a 4 digit number where each digit is unique
 static int GenerateNum()
 {
-    //TODO: generate unique digit number
+    //TODO: generate a distinct 4 digit number
     return 1234;
 }
 
