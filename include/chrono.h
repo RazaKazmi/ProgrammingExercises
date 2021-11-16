@@ -35,6 +35,7 @@ namespace Chrono
     };
 
     const Date& DefaultDate();
+    Month IntToMonth(int x);
 
     // True for valid date
     bool IsDate(int y, Month m, int d);

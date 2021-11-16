@@ -122,6 +122,7 @@ TEST(common_utility_tests, MedianVecTest)
     EXPECT_DOUBLE_EQ(common_utility::MedianVec(double_vec1,false),17.6);
 }
 
+/*
 TEST(common_utility_tests, ModeVecTest)
 {
     std::vector<int> int_vec{5,10,15,30,20,25,30};
@@ -129,3 +130,4 @@ TEST(common_utility_tests, ModeVecTest)
     EXPECT_DOUBLE_EQ(common_utility::ModeVec(int_vec),30);
     EXPECT_DOUBLE_EQ(common_utility::ModeVec(double_vec),30.1);
 }
+*/

@@ -1,4 +1,5 @@
 #include "../include/chrono.h"
+#include "common_utilities.h"
 
 namespace Chrono
 {
@@ -34,11 +35,22 @@ namespace Chrono
 
     void Date::AddYear(int n)
     {
-
+        if(_month == Month::feb && _day == 29 && !LeapYear(_year + n)) {
+            _month = Month::mar;
+            _day = 1;
+        }
+        _year += n;
     }
 
     // Helper Functions
-    
+
+    Month IntToMonth(int x)
+    {
+        if(x < int(Month::jan) || int(Month::dec) < x)
+            common_utility::Error("Bad Month");
+        return Month(x);
+    }
+
     bool IsDate(int y, Month m, int d)
     {
         // Assume y is a valid year
@@ -90,12 +102,12 @@ namespace Chrono
         return !(a == b);
     }
 
-    /*
+    
     std::ostream& operator<<(std::ostream& os, const Date& d)
     {
-        return os << '(' << d.GetYear() << ',' << d.GetMonth() << ',' << d.GetDay() << ')';
+        return os << '(' << d.GetYear() << ',' << int(d.GetMonth()) << ',' << d.GetDay() << ')';
     }
-    */
+    
 
    std::istream& operator>>(std::istream& is, Date& dd)
    {
